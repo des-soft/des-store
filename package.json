@@ -3,7 +3,7 @@
   "bin": {
     "dest": "src/cli/dest.js"
   },
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "备份，易用，可靠",
   "main": "index.js",
   "scripts": {

@@ -14,5 +14,6 @@ program
   .command('edit', '编辑 ...')
   .command('list', '列出 des-store 资源')
   .command('help', '使用方法')
+  .command('git', 'git tools')
   .option('-V, --V', '版本号')
   .parse(process.argv);

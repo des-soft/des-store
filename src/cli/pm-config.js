@@ -2,7 +2,9 @@
 
 const { 
     pkg_conf, BASE, resolve,
-    HOMEDIR, copy, mkdir
+    HOMEDIR, copy, mkdir, 
+    HOMEDIR_CONFIG_PATH, 
+    setConfig
 } = require('./cli-utils')
 
 const path = require('path')
@@ -13,7 +15,7 @@ const Gitstore = require('des-gitstore');
 function readFile(file){
     let json = null, data; 
     try {
-        json = fs.readFileSync(file)
+        json = fs.readFileSync(file, 'utf-8')
     } catch (err){
         console.log(`  找不到文件 ${file}`); 
         console.log(`  usage: dest config <config_file>`); 
@@ -39,8 +41,7 @@ program
     .action(async config_file => {
         let { json, data } = readFile(config_file); 
         
-        let HOME_CONFIG_PATH = path.join(HOMEDIR, 'config.json');
-        fs.writeFileSync(HOME_CONFIG_PATH, json); 
+        setConfig(json); 
 
         let {
             git_base, git_uri 

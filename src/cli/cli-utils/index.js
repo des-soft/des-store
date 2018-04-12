@@ -11,7 +11,7 @@ const pkg_conf = require('../../../package.json')
 
 /**
  * @description 获取配置 
- * @returns { Object } 配置
+ * @returns { { git_uri: String, git_base: String } } 配置
  */
 function getConfig() {
     if (getConfig.__cache) return getConfig.__cache; 

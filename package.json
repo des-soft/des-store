@@ -13,6 +13,7 @@
   "dependencies": {
     "commander": "^2.14.1",
     "des-gitstore": "0.0.6",
+    "get-folder-size": "^1.0.1",
     "md.daily": "^1.0.0",
     "os-homedir": "^1.0.2",
     "then-fs": "^2.0.0",

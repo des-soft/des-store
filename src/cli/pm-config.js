@@ -41,8 +41,6 @@ program
     .action(async config_file => {
         let { json, data } = readFile(config_file); 
         
-        setConfig(json); 
-
         let {
             git_base, git_uri 
         } = data; 
@@ -61,6 +59,9 @@ program
         mkdir(store); 
         mkdir(love);
         mkdir(mailImg); 
+
+        data.git_base = g.git_base; 
+        setConfig(data); 
 
         console.log('\n'); 
         console.log(`All Configed, Run "dest help" for more usage`);

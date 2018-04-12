@@ -1,13 +1,18 @@
 #!/usr/bin/env node
 
 const path = require('path')
+    , { getConfig } = require('./cli-utils')
     , fs = require('then-fs')
-    , BASE = path.join(__dirname, '../')
-    , resolve = $ => path.join(BASE, $)
 
+    , config = getConfig()
 
-// all 
+// Git Base 
+var resolve = $ => path.join(config.git_base, $); 
+
+// All 
 let love_base = resolve('store/love'); 
+
+// Loading  
 let loading = fs.readdirSync(love_base).map(file_name => {
     let file = path.join(love_base, file_name); 
 

@@ -1,9 +1,8 @@
 daily {
     title: {{ title }}
-    time: {{ date }}
+    time: {{ time }}
     from: {{ from }}
     to: {{ to }}
-    id: 
     theme: {{ theme }}
 }
 ;;;;;;
@@ -19,5 +18,5 @@ Hello, This Is An Example Daily.
 # More 
 
 ``` bash 
-$ dest mail send 
+$ dest help 
 ```

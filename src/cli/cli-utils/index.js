@@ -6,7 +6,6 @@ const pkg_conf = require('../../../package.json')
     , copy = require('./file-copy')
     , mkdir = require('./mkdir')
     
-
 /**
  * @description 获取配置 
  * @returns { { git_uri: String, git_base: String } } 配置
@@ -63,5 +62,6 @@ function fsize(...args){
 module.exports = {
     pkg_conf, path, resolve, HOMEDIR, 
     copy, mkdir, HOMEDIR_CONFIG_PATH,
-    setConfig, getConfig, fsize
+    setConfig, getConfig, fsize, 
+    tpl: require('../template')
 }

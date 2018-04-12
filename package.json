@@ -1,9 +1,9 @@
 {
   "name": "des-store",
   "bin": {
-    "dest": "src/cli/pm.js"
+    "dest": "src/cli/dest.js"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "备份，易用，可靠",
   "main": "index.js",
   "scripts": {

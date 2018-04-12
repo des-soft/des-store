@@ -1,8 +1,6 @@
 const pkg_conf = require('../../../package.json')
     , path = require('path')
     , fs = require('fs')
-    , BASE = path.join(__dirname, '../../')
-    , resolve = (...paths) => path.join(BASE, ...paths)
     , HOMEDIR = require('./homedir')
     , HOMEDIR_CONFIG_PATH = path.join(HOMEDIR, 'config.json')
     , copy = require('./file-copy')
@@ -37,8 +35,18 @@ function setConfig(json) {
     getConfig.__cache = null; 
 }
 
+/**
+ * @description 嗯... 
+ * @param { String } $ 
+ * @returns { String }
+ */
+function resolve(...$){
+    let config = getConfig(); 
+    return path.join(config.git_base, ...$); 
+}
+
 module.exports = {
-    pkg_conf, path, BASE, resolve, HOMEDIR, 
+    pkg_conf, path, resolve, HOMEDIR, 
     copy, mkdir, HOMEDIR_CONFIG_PATH,
     setConfig, getConfig
 }

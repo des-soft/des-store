@@ -1,13 +1,9 @@
 #!/usr/bin/env node
 
 const path = require('path')
-    , { getConfig } = require('./cli-utils')
+    , { getConfig, resolve } = require('./cli-utils')
     , fs = require('then-fs')
-
     , config = getConfig()
-
-// Git Base 
-var resolve = $ => path.join(config.git_base, $); 
 
 // All 
 let love_base = resolve('store/love'); 

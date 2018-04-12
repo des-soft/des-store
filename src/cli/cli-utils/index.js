@@ -45,8 +45,23 @@ function resolve(...$){
     return path.join(config.git_base, ...$); 
 }
 
+const getSize = require('get-folder-size'); 
+function fsize(...args){
+    return new Promise((res, rej) => {
+        args.push((err, size) => {
+            if (err) {
+                rej(err);
+            } else {
+                res(size); 
+            }
+        }); 
+
+        getSize(...args); 
+    }); 
+}
+
 module.exports = {
     pkg_conf, path, resolve, HOMEDIR, 
     copy, mkdir, HOMEDIR_CONFIG_PATH,
-    setConfig, getConfig
+    setConfig, getConfig, fsize
 }

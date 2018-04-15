@@ -13,7 +13,7 @@ let mail_img_base = resolve('store/mail-img');
     // Config Log 
     console.log('Config: '); 
     Object.keys(config).forEach(key => {
-        console.log(' ', key.padEnd(8), ' : ', config[key]); 
+        console.log(' ', key.padStart(8), ':', config[key]); 
     });
     console.log(' '); 
 
@@ -49,9 +49,11 @@ let mail_img_base = resolve('store/mail-img');
     console.log('')
 
     // Size Log 
-    let base_size = await fsize(config.git_base); 
+    let repo_size = await fsize(config.git_base); 
+    let love_size = await fsize(love_base);
+    let imgs_size = await fsize(mail_img_base);
     console.log('Size: '); 
-    console.log(`  About ${Math.round(base_size / 1024)} KB`); 
+    console.log(`  Love:`, `${Math.round(love_size / 1024)} KB`); 
+    console.log(`  Imgs:`, `${Math.round(imgs_size / 1024)} KB`); 
+    console.log(`  Repo:`, `${Math.round(repo_size / 1024)} KB`); 
 })(); 
-
-

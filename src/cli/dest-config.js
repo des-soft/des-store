@@ -4,7 +4,7 @@ const {
     pkg_conf, BASE, resolve,
     HOMEDIR, copy, mkdir, 
     HOMEDIR_CONFIG_PATH, 
-    setConfig
+    setConfig, getConfig
 } = require('./cli-utils')
 
 const path = require('path')
@@ -32,6 +32,21 @@ function readFile(file){
     return {
         json, data
     } 
+}
+
+function logConfig(){
+    let config = null; 
+    try {
+        config = getConfig(); 
+        // Config Log 
+        console.log('Now Config'); 
+        Object.keys(config).forEach(key => {
+            console.log('  -', key.padStart(8), ':', config[key]); 
+        });
+        console.log(' '); 
+    } catch (err) {
+        console.log('  Config Not Found. Please Run dest config <config_file> to set config. '); 
+    }
 }
 
 program
@@ -67,3 +82,21 @@ program
         console.log(`All Configed, Run "dest help" for more usage`);
     })
     .parse(process.argv);
+
+
+// 
+const help = `
+  Usage:
+    - Set Config: 
+      dest config <your_config_file>
+
+    - Get Config: 
+      dest config -p, --preview 
+`
+
+if (!process.argv.slice(2).length) {
+    program.outputHelp(text => {
+        logConfig(); 
+        return ''; 
+    });
+}

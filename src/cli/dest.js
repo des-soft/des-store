@@ -8,7 +8,7 @@ const program = require('commander');
 
 program
   .version(pkg_conf.version)
-  .command('config', '使用配置文件')
+  .command('config <your_config_file>', '使用配置文件')
   .command('status', '查看 des-store 资源一览')
   .command('new', '创建资源') 
   .command('edit', '编辑 ...')

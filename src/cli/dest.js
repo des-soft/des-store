@@ -12,7 +12,6 @@ program
   .command('status', '查看 des-store 资源一览')
   .command('new', '创建资源') 
   .command('edit', '编辑 ...')
-  .command('list', '列出 des-store 资源')
   .command('help', '使用方法')
   .command('look', '打开仓库的文件夹')
   .command('git', 'git tools')
